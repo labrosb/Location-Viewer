@@ -11,7 +11,11 @@ const App: React.FC = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <StatusBar barStyle="dark-content" />
+          <StatusBar
+            translucent
+            barStyle="dark-content"
+            backgroundColor="transparent"
+          />
           <Navigator />
         </NavigationContainer>
       </PersistGate>

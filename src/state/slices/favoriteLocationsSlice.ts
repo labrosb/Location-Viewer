@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {Location} from '../../@models/location';
 
-type Favorites = Record<string, Exclude<Location, 'id'>>;
+export type Favorites = Record<string, Exclude<Location, 'id'>>;
 
 const initialState = {} as Favorites;
 

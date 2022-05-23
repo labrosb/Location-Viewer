@@ -8,8 +8,16 @@ const Stack = createStackNavigator();
 const MainStack: React.FC = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Locations" component={LocationsScreen} />
-      <Stack.Screen name="LocationDetails" component={LocationDetailsScreen} />
+      <Stack.Screen
+        name="Locations"
+        component={LocationsScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="LocationDetails"
+        component={LocationDetailsScreen}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
