@@ -10,10 +10,12 @@ const favoriteLocationsSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, action) => {
-
+      const {id, ...restLocation} = action.payload;
+      state[id] = restLocation;
     },
     removeFavorite: (state, action) => {
-
+      const id = action.payload;
+      delete state[id];
     },
   },
 });
