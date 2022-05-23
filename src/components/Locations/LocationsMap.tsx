@@ -2,16 +2,16 @@ import React from 'react';
 import {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {faLocationDot, faHeart} from '@fortawesome/free-solid-svg-icons';
 import {AverageLocation} from '../../state/selectors/locationSelectors';
-import {Location} from '../../@models/location';
-import type {Favorites} from '../../state/slices/favoriteLocationsSlice';
 import {Map, PinContainer, HeartIcon, LocationIcon} from './LocationsMap.UI';
+import type {Location, LocationWithIndex} from '../../@models/location';
+import type {Favorites} from '../../state/slices/favoriteLocationsSlice';
 
 type Props = {
   regionLatlng: AverageLocation;
   locations: Location[];
   favorites: Favorites;
   selectedLocationId?: number;
-  onLocationSelected: (location: Location) => void;
+  onLocationSelected: (location: LocationWithIndex) => void;
 };
 
 const LocationsMap: React.FC<Props> = ({
@@ -30,14 +30,14 @@ const LocationsMap: React.FC<Props> = ({
 
   return (
     <Map provider={PROVIDER_GOOGLE} initialRegion={region}>
-      {locations.map(location => (
+      {locations.map((location, index) => (
         <Marker
           key={location.id}
           coordinate={{
             latitude: location.latlng.latitude,
             longitude: location.latlng.longitude,
           }}
-          onPress={() => onLocationSelected(location)}>
+          onPress={() => onLocationSelected({...location, index})}>
           <PinContainer>
             {!!favorites[location.id] && <HeartIcon size={25} icon={faHeart} />}
             <LocationIcon

@@ -8,3 +8,5 @@ export type Location = {
   description: string;
   image: string;
 };
+
+export type LocationWithIndex = Location & {index: number};

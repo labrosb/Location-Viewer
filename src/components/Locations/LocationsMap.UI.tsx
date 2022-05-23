@@ -1,6 +1,6 @@
 import MapView from 'react-native-maps';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 type LocationIcon = {
   $isSelected: boolean;
