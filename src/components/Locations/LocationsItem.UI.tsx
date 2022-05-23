@@ -2,7 +2,7 @@ import {ElementType} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import styled from 'styled-components/native';
 
-export const ItemMargin = 4;
+export const ItemMargin = 8;
 export const ItemWidth = 250;
 
 export const Container = styled.TouchableOpacity`

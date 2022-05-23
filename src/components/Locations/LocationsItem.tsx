@@ -30,16 +30,14 @@ const LocationItem: React.FC<Props> = ({
 
   return (
     <Container onPress={ev => onItemClick(ev, item)}>
-      <Container>
-        <Content resizeMode="cover" source={{uri: item.image}}>
-          <HeartContainer onPress={ev => onFavoriteClick(ev, item)}>
-            <HeartIcon size={18} icon={icon} />
-          </HeartContainer>
-          <TitleContainer>
-            <Title>{item.name}</Title>
-          </TitleContainer>
-        </Content>
-      </Container>
+      <Content resizeMode="cover" source={{uri: item.image}}>
+        <HeartContainer onPress={ev => onFavoriteClick(ev, item)}>
+          <HeartIcon size={18} icon={icon} />
+        </HeartContainer>
+        <TitleContainer>
+          <Title>{item.name}</Title>
+        </TitleContainer>
+      </Content>
     </Container>
   );
 };

@@ -76,7 +76,7 @@ const LocationsList: React.FC<Props> = ({
       scrollToIndex={selectedLocationIndex}
       getItemLayout={(_: unknown, index: number) => ({
         length: ItemWidth + ItemMargin * 2,
-        offset: ListMargin + (20 + ItemWidth + ItemMargin * 2) * index,
+        offset: ListMargin + (ItemWidth + ItemMargin * 2) * index,
         index,
       })}
     />
