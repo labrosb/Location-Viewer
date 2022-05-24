@@ -29,7 +29,7 @@ const LocationDetails: React.FC<Props> = ({location}) => {
 
   const isFavorite = !!favorites[location.id];
 
-  const onFavoriteClick = (ev: GestureResponderEvent) => {
+  const onFavoriteClick = (ev: GestureResponderEvent): void => {
     ev.preventDefault();
     const {id} = location;
     if (isFavorite) {

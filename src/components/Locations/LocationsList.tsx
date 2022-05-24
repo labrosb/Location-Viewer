@@ -40,7 +40,7 @@ const LocationsList: React.FC<Props> = ({
     }
   }, [selectedLocationIndex]);
 
-  const onFavoriteClick = (ev: GestureResponderEvent, item: Location) => {
+  const onFavoriteClick = (ev: GestureResponderEvent, item: Location): void => {
     ev.preventDefault();
     const {id} = item;
     if (favorites[id]) {
@@ -50,7 +50,7 @@ const LocationsList: React.FC<Props> = ({
     }
   };
 
-  const onItemClick = (ev: GestureResponderEvent, item: Location) => {
+  const onItemClick = (ev: GestureResponderEvent, item: Location): void => {
     ev.preventDefault();
     navigation.navigate('LocationDetails', {location: item});
   };
