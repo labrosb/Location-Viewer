@@ -1,6 +1,6 @@
 import {ElementType} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import styled from 'styled-components/native';
+import BaseHeartButton from '../Common/HeartButton';
 
 export const ItemMargin = 8;
 export const ItemWidth = 250;
@@ -17,19 +17,10 @@ export const Content = styled.ImageBackground.attrs({
   width: ${ItemWidth}px;
 ` as ElementType;
 
-export const HeartContainer = styled.TouchableOpacity`
+export const HeartButton = styled(BaseHeartButton)`
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 8px;
-  margin: 8px 12px;
-  border-radius: 50px;
-  background-color: #ffff;
-  z-index: 10;
-`;
-
-export const HeartIcon = styled(FontAwesomeIcon)`
-  color: #cb2e30;
+  top: 8px;
+  right: 12px;
 `;
 
 export const TitleContainer = styled.View`

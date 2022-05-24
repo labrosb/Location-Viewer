@@ -1,12 +1,9 @@
 import React from 'react';
 import {GestureResponderEvent} from 'react-native';
-import {faHeart as faHeartSolid} from '@fortawesome/free-solid-svg-icons';
-import {faHeart} from '@fortawesome/free-regular-svg-icons';
 import {
   Container,
   Content,
-  HeartContainer,
-  HeartIcon,
+  HeartButton,
   TitleContainer,
   Title,
 } from './LocationsItem.UI';
@@ -26,14 +23,15 @@ const LocationItem: React.FC<Props> = ({
   onItemClick,
   onFavoriteClick,
 }) => {
-  const icon = isFavorite ? faHeartSolid : faHeart;
-
   return (
     <Container onPress={ev => onItemClick(ev, item)}>
       <Content resizeMode="cover" source={{uri: item.image}}>
-        <HeartContainer onPress={ev => onFavoriteClick(ev, item)}>
-          <HeartIcon size={18} icon={icon} />
-        </HeartContainer>
+        <HeartButton
+          buttonSize={34}
+          iconSize={18}
+          isActive={isFavorite}
+          onPress={ev => onFavoriteClick(ev, item)}
+        />
         <TitleContainer>
           <Title>{item.name}</Title>
         </TitleContainer>
