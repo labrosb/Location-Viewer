@@ -9,6 +9,7 @@ import type {LocationWithIndex} from '../@models/location';
 
 const LocationsScreen: React.FC = () => {
   const dispatch = useDispatch();
+  /* Retrieving from state here to distribute to the children */
   const locations = useSelector(state => state.locations);
   const favorites = useSelector(state => state.favorites);
   const regionLatlng = useSelector(selectAverageLocation);

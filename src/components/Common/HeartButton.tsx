@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart as faHeartSolid} from '@fortawesome/free-solid-svg-icons';
 import {faHeart} from '@fortawesome/free-regular-svg-icons';
 import styled from 'styled-components/native';
+import Colors from '../../constants/theme';
 
 type Props = {
   buttonSize?: number;
@@ -15,7 +16,7 @@ type Props = {
 
 export const Container = styled.TouchableOpacity<{$size?: number}>`
   border-radius: 50px;
-  background-color: #ffff;
+  background-color: ${Colors.neutral};
   z-index: 10;
   ${({$size}) =>
     !!$size &&
@@ -28,7 +29,7 @@ export const Container = styled.TouchableOpacity<{$size?: number}>`
 `;
 
 export const HeartIcon = styled(FontAwesomeIcon)`
-  color: #cb2e30;
+  color: ${Colors.favorite};
 `;
 
 const LocationDetails: React.FC<Props> = ({

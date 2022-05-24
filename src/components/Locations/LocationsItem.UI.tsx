@@ -1,5 +1,6 @@
 import {ElementType} from 'react';
 import styled from 'styled-components/native';
+import Colors from '../../constants/theme';
 import BaseHeartButton from '../Common/HeartButton';
 
 export const ItemMargin = 8;
@@ -32,5 +33,5 @@ export const TitleContainer = styled.View`
 export const Title = styled.Text`
   font-size: 32px;
   font-weight: bold;
-  color: #ffff;
+  color: ${Colors.neutral};
 `;

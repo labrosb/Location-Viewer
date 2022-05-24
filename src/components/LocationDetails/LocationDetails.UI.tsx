@@ -2,6 +2,7 @@ import {ElementType} from 'react';
 import {Dimensions} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import styled from 'styled-components/native';
+import Colors from '../../constants/theme';
 import BaseHeartButton from '../Common/HeartButton';
 
 const windowWidth = Dimensions.get('window').width;
@@ -22,8 +23,8 @@ export const BackButton = styled.TouchableOpacity`
   width: 64px;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  box-shadow: 0px 5px 5px #b5b5b5;
+  background-color: ${Colors.neutral};
+  box-shadow: 0px 5px 3px ${Colors.shadow};
   border-radius: 50px;
   position: absolute;
   bottom: -30px;
@@ -31,7 +32,7 @@ export const BackButton = styled.TouchableOpacity`
 `;
 
 export const BackButtonIcon = styled(FontAwesomeIcon)`
-  color: #2a7dfb;
+  color: ${Colors.select};
 `;
 
 export const TitleContainer = styled.View`
@@ -45,10 +46,10 @@ export const DetailsContainer = styled.View`
 export const Title = styled.Text`
   font-size: 42px;
   font-weight: bold;
-  color: #000000;
+  color: ${Colors.dark};
 `;
 
 export const DetailsText = styled.Text`
   font-size: 14px;
-  color: #000000;
+  color: ${Colors.dark};
 `;

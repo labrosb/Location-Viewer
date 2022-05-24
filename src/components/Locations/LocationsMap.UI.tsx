@@ -1,6 +1,7 @@
 import MapView from 'react-native-maps';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import styled from 'styled-components/native';
+import Colors from '../../constants/theme';
 
 type LocationIcon = {
   $isSelected: boolean;
@@ -16,12 +17,12 @@ export const PinContainer = styled.View`
 `;
 
 export const HeartIcon = styled(FontAwesomeIcon)`
-  color: #cb2e30;
+  color: ${Colors.favorite};
   top: 22px;
   right: 16px;
   z-index: 10;
 `;
 
 export const LocationIcon = styled(FontAwesomeIcon)<LocationIcon>`
-  color: ${({$isSelected}) => ($isSelected ? '#2a7dfb' : '#4c4e5a')};
+  color: ${({$isSelected}) => ($isSelected ? Colors.select : Colors.pin)};
 `;

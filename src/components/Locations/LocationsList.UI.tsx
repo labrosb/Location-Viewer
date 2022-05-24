@@ -1,5 +1,6 @@
 import {ElementType} from 'react';
 import styled from 'styled-components/native';
+import Colors from '../../constants/theme';
 
 export const ListMargin = 12;
 
@@ -8,7 +9,7 @@ export const List = styled.FlatList`
   padding: 36px ${ListMargin}px 50px ${ListMargin}px;
   border-top-left-radius: 22px;
   border-top-right-radius: 22px;
-  background-color: #ffff;
+  background-color: ${Colors.neutral};
   position: absolute;
   bottom: 0;
 ` as ElementType;
