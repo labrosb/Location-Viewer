@@ -1,5 +1,5 @@
 import React from 'react';
-import {GestureResponderEvent} from 'react-native';
+import {ScrollView, GestureResponderEvent} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {useDispatch, useSelector} from '../../state/store';
@@ -40,7 +40,7 @@ const LocationDetails: React.FC<Props> = ({location}) => {
   };
 
   return (
-    <>
+    <ScrollView>
       <ImageContent resizeMode="cover" source={{uri: location.image}}>
         <HeartButton
           buttonSize={56}
@@ -58,7 +58,7 @@ const LocationDetails: React.FC<Props> = ({location}) => {
       <DetailsContainer>
         <DetailsText>{location.description}</DetailsText>
       </DetailsContainer>
-    </>
+    </ScrollView>
   );
 };
 

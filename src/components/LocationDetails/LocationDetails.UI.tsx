@@ -25,6 +25,7 @@ export const BackButton = styled.TouchableOpacity`
   align-items: center;
   background-color: ${Colors.neutral};
   box-shadow: 0px 5px 3px ${Colors.shadow};
+  elevation: 16;
   border-radius: 50px;
   position: absolute;
   bottom: -30px;
@@ -40,7 +41,7 @@ export const TitleContainer = styled.View`
 `;
 
 export const DetailsContainer = styled.View`
-  padding: 0 20px;
+  padding: 0 20px 40px 20px;
 `;
 
 export const Title = styled.Text`
