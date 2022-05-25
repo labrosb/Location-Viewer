@@ -14,6 +14,8 @@ type Props = {
   style?: ViewStyle;
 };
 
+type HeartIconProps = {testID: string};
+
 export const Container = styled.TouchableOpacity<{$size?: number}>`
   border-radius: 50px;
   background-color: ${Colors.neutral};
@@ -28,7 +30,7 @@ export const Container = styled.TouchableOpacity<{$size?: number}>`
   `}
 `;
 
-export const HeartIcon = styled(FontAwesomeIcon)`
+export const HeartIcon = styled(FontAwesomeIcon)<HeartIconProps>`
   color: ${Colors.favorite};
 `;
 
@@ -44,7 +46,11 @@ const LocationDetails: React.FC<Props> = ({
       onPress={(ev: GestureResponderEvent) => onPress(ev)}
       $size={buttonSize}
       style={style}>
-      <HeartIcon size={iconSize} icon={isActive ? faHeartSolid : faHeart} />
+      <HeartIcon
+        testID="heart-button-icon"
+        size={iconSize}
+        icon={isActive ? faHeartSolid : faHeart}
+      />
     </Container>
   );
 };

@@ -48,7 +48,7 @@ const LocationDetails: React.FC<Props> = ({location}) => {
           isActive={isFavorite}
           onPress={onFavoriteClick}
         />
-        <BackButton onPress={navigation.goBack}>
+        <BackButton testID="details-back-button" onPress={navigation.goBack}>
           <BackButtonIcon size={40} icon={faAngleDown} />
         </BackButton>
       </ImageContent>

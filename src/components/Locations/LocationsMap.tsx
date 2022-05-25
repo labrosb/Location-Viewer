@@ -32,6 +32,7 @@ const LocationsMap: React.FC<Props> = ({
     <Map provider={PROVIDER_GOOGLE} initialRegion={region}>
       {locations.map((location, index) => (
         <Marker
+          testID="map-marker"
           key={location.id}
           coordinate={{
             latitude: location.latlng.latitude,
@@ -39,8 +40,11 @@ const LocationsMap: React.FC<Props> = ({
           }}
           onPress={() => onLocationSelected({...location, index})}>
           <PinContainer>
-            {!!favorites[location.id] && <HeartIcon size={25} icon={faHeart} />}
+            {!!favorites[location.id] && (
+              <HeartIcon testID="heart-icon" size={25} icon={faHeart} />
+            )}
             <LocationIcon
+              testID="location-icon"
               $isSelected={selectedLocationId === location.id}
               size={55}
               icon={faLocationDot}

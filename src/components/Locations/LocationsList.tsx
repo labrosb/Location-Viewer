@@ -58,6 +58,7 @@ const LocationsList: React.FC<Props> = ({
   return (
     <List
       horizontal
+      testID="locations-list"
       ref={listRef}
       data={locations}
       renderItem={({item}: {item: Location}) => (

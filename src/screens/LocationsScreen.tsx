@@ -33,7 +33,6 @@ const LocationsScreen: React.FC = () => {
           regionLatlng,
           locations,
           favorites,
-          selectedLocation,
           onLocationSelected,
         }}
       />
@@ -42,7 +41,6 @@ const LocationsScreen: React.FC = () => {
         {...{
           locations,
           favorites,
-          selectedLocation,
         }}
       />
     </>

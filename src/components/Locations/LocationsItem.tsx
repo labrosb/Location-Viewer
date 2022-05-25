@@ -24,7 +24,7 @@ const LocationItem: React.FC<Props> = ({
   onFavoriteClick,
 }) => {
   return (
-    <Container onPress={ev => onItemClick(ev, item)}>
+    <Container testID="location-item" onPress={ev => onItemClick(ev, item)}>
       <Content resizeMode="cover" source={{uri: item.image}}>
         <HeartButton
           buttonSize={34}

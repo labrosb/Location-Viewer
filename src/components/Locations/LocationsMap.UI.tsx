@@ -5,6 +5,11 @@ import Colors from '../../constants/theme';
 
 type LocationIcon = {
   $isSelected: boolean;
+  testID?: string;
+};
+
+type HeartIcon = {
+  testID?: string;
 };
 
 export const Map = styled(MapView)`
@@ -16,7 +21,7 @@ export const PinContainer = styled.View`
   align-items: center;
 `;
 
-export const HeartIcon = styled(FontAwesomeIcon)`
+export const HeartIcon = styled(FontAwesomeIcon)<HeartIcon>`
   color: ${Colors.favorite};
   top: 22px;
   right: 16px;
