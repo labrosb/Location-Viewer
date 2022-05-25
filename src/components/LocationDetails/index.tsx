@@ -9,11 +9,13 @@ import {
   addFavorite,
   removeFavorite,
 } from '../../state/slices/favoriteLocationsSlice';
+import useFlipAnimation from '../../hooks/useFlipAnimation';
+import HeartButton from '../Common/HeartButton';
 import {
   TopContainer,
   ButtonsContainer,
   Image,
-  HeartButton,
+  HeartButtonContainer,
   BackButton,
   BackButtonIcon,
   DetailsContainer,
@@ -21,13 +23,15 @@ import {
   Title,
   DetailsText,
 } from './LocationDetails.UI';
+
 import type {LocationDetailsNavigationProp} from '../../navigation/types';
 import type {Location} from '../../@models/location';
 
 type Props = {location: Location};
 
-export const AnimatedButtons =
-  Animated.createAnimatedComponent(ButtonsContainer);
+export const FadeContainer = Animated.createAnimatedComponent(ButtonsContainer);
+export const FlipContainer =
+  Animated.createAnimatedComponent(HeartButtonContainer);
 
 const LocationDetails: React.FC<Props> = ({location}) => {
   const dispatch = useDispatch();
@@ -38,17 +42,20 @@ const LocationDetails: React.FC<Props> = ({location}) => {
   // If is in favorites
   const isFavorite = !!favorites[location.id];
 
+  const {play, animationStyles} = useFlipAnimation({startFlipped: isFavorite});
+
   useEffect(() => {
     Animated.timing(fadeValue.current, {
       toValue: 1,
-      duration: 1000,
-      delay: 500,
+      duration: 800,
+      delay: 300,
       useNativeDriver: true,
     }).start();
   }, []);
 
   const onFavoriteClick = (ev: GestureResponderEvent): void => {
     ev.preventDefault();
+    play();
     const {id} = location;
     if (isFavorite) {
       dispatch(removeFavorite(id));
@@ -63,17 +70,19 @@ const LocationDetails: React.FC<Props> = ({location}) => {
         <SharedElement id={`image-${location.id}`}>
           <Image resizeMode="cover" source={{uri: location.image}} />
         </SharedElement>
-        <AnimatedButtons style={{opacity: fadeValue.current}}>
-          <HeartButton
-            buttonSize={56}
-            iconSize={28}
-            isActive={isFavorite}
-            onPress={onFavoriteClick}
-          />
+        <FadeContainer style={{opacity: fadeValue.current}}>
+          <FlipContainer style={animationStyles}>
+            <HeartButton
+              buttonSize={56}
+              iconSize={28}
+              isActive={isFavorite}
+              onPress={onFavoriteClick}
+            />
+          </FlipContainer>
           <BackButton testID="details-back-button" onPress={navigation.goBack}>
             <BackButtonIcon size={40} icon={faAngleDown} />
           </BackButton>
-        </AnimatedButtons>
+        </FadeContainer>
       </TopContainer>
       <TitleContainer>
         <Title>{location.name}</Title>

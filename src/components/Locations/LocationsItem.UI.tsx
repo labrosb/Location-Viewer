@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import Colors from '../../constants/theme';
-import BaseHeartButton from '../Common/HeartButton';
 
 // Exporting variables to be used in FlatList getItemLayout
 export const ItemMargin = 8;
@@ -17,7 +16,7 @@ export const Image = styled.Image`
   border-radius: 22px;
 `;
 
-export const HeartButton = styled(BaseHeartButton)`
+export const HeartButtonContainer = styled.View`
   position: absolute;
   top: 8px;
   right: 12px;
