@@ -2,7 +2,13 @@ import React from 'react';
 import {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {faLocationDot, faHeart} from '@fortawesome/free-solid-svg-icons';
 import {AverageLocation} from '../../state/selectors/locationSelectors';
-import {Map, PinContainer, HeartIcon, LocationIcon} from './LocationsMap.UI';
+import {
+  ActivitySpinner,
+  Map,
+  PinContainer,
+  HeartIcon,
+  LocationIcon,
+} from './LocationsMap.UI';
 import type {Location, LocationWithIndex} from '../../@models/location';
 import type {Favorites} from '../../state/slices/favoriteLocationsSlice';
 
@@ -27,6 +33,11 @@ const LocationsMap: React.FC<Props> = ({
     latitudeDelta: 0.1,
     longitudeDelta: 0.1,
   };
+
+  // If position not yet calculated
+  if (!regionLatlng.latitude) {
+    return <ActivitySpinner size="large" />;
+  }
 
   return (
     <Map provider={PROVIDER_GOOGLE} initialRegion={region}>

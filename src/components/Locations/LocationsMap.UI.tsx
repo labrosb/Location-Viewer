@@ -3,14 +3,17 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import styled from 'styled-components/native';
 import Colors from '../../constants/theme';
 
+type HeartIcon = {testID?: string};
+
 type LocationIcon = {
   $isSelected: boolean;
   testID?: string;
 };
 
-type HeartIcon = {
-  testID?: string;
-};
+export const ActivitySpinner = styled.ActivityIndicator`
+  flex: 1;
+  bottom: 80px;
+`;
 
 export const Map = styled(MapView)`
   height: 100%;
