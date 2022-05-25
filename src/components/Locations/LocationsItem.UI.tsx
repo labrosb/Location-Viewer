@@ -1,4 +1,3 @@
-import {ElementType} from 'react';
 import styled from 'styled-components/native';
 import Colors from '../../constants/theme';
 import BaseHeartButton from '../Common/HeartButton';
@@ -11,12 +10,11 @@ export const Container = styled.TouchableOpacity`
   border-radius: 22px;
 `;
 
-export const Content = styled.ImageBackground.attrs({
-  imageStyle: {borderRadius: 22},
-})`
+export const Image = styled.Image`
   height: 165px;
   width: ${ItemWidth}px;
-` as ElementType;
+  border-radius: 22px;
+`;
 
 export const HeartButton = styled(BaseHeartButton)`
   position: absolute;

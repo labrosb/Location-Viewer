@@ -1,9 +1,9 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 import LocationsScreen from '../screens/LocationsScreen';
 import LocationDetailsScreen from '../screens/LocationDetailsScreen';
 
-const Stack = createStackNavigator();
+const Stack = createSharedElementStackNavigator();
 
 const MainStack: React.FC = () => {
   return (
@@ -16,7 +16,17 @@ const MainStack: React.FC = () => {
       <Stack.Screen
         name="LocationDetails"
         component={LocationDetailsScreen}
-        options={{headerShown: false}}
+        sharedElements={(route, otherRoute, showing) => {
+          if (otherRoute.name === 'Locations' && showing) {
+            return [`image-${route.params.location.id}`];
+          }
+        }}
+        options={{
+          headerShown: false,
+          cardStyleInterpolator: ({current: {progress}}) => ({
+            cardStyle: {opacity: progress},
+          }),
+        }}
       />
     </Stack.Navigator>
   );

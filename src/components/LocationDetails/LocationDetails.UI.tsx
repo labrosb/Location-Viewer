@@ -1,4 +1,3 @@
-import {ElementType} from 'react';
 import {Dimensions} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import styled from 'styled-components/native';
@@ -7,10 +6,21 @@ import BaseHeartButton from '../Common/HeartButton';
 
 const windowWidth = Dimensions.get('window').width;
 
-export const ImageContent = styled.ImageBackground`
+export const TopContainer = styled.View`
+  position: relative;
+`;
+
+export const Image = styled.Image`
   height: ${windowWidth}px;
   width: 100%;
-` as ElementType;
+`;
+
+export const ButtonsContainer = styled.View`
+  height: ${windowWidth}px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+`;
 
 export const HeartButton = styled(BaseHeartButton)`
   position: absolute;

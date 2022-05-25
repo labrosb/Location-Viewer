@@ -1,8 +1,9 @@
 import React from 'react';
 import {GestureResponderEvent} from 'react-native';
+import {SharedElement} from 'react-navigation-shared-element';
 import {
   Container,
-  Content,
+  Image,
   HeartButton,
   TitleContainer,
   Title,
@@ -25,17 +26,18 @@ const LocationItem: React.FC<Props> = ({
 }) => {
   return (
     <Container testID="location-item" onPress={ev => onItemClick(ev, item)}>
-      <Content resizeMode="cover" source={{uri: item.image}}>
-        <HeartButton
-          buttonSize={34}
-          iconSize={18}
-          isActive={isFavorite}
-          onPress={ev => onFavoriteClick(ev, item)}
-        />
-        <TitleContainer>
-          <Title>{item.name}</Title>
-        </TitleContainer>
-      </Content>
+      <SharedElement id={`image-${item.id}`}>
+        <Image resizeMode="cover" source={{uri: item.image}} />
+      </SharedElement>
+      <HeartButton
+        buttonSize={34}
+        iconSize={18}
+        isActive={isFavorite}
+        onPress={ev => onFavoriteClick(ev, item)}
+      />
+      <TitleContainer>
+        <Title>{item.name}</Title>
+      </TitleContainer>
     </Container>
   );
 };
