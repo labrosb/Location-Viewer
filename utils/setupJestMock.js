@@ -34,3 +34,15 @@ jest.mock('react-native-maps', () => {
     PROVIDER_GOOGLE: 'google',
   };
 });
+
+jest.mock('react-navigation-shared-element', () => {
+  const {View} = require('react-native');
+  const SharedElement = ({children, ...props}) => (
+    <View {...props}>{children}</View>
+  );
+  return {
+    SharedElement,
+  };
+});
+
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
