@@ -12,6 +12,7 @@ You can run the app both on iOS and Android on a physical device or simulator
   - For Android: include your API key in `AndroidManifest.xml` (line 27) in `android/app/src`
   - For iOS: include your API key in `AppDelegate.mm` (line 34) in `ios/LocationViewer`
 - Open a terminal, navigate to the root of the project and execute yarn install, to install the project's dependencies
+- iOS only: navigate to iOS folder and execute `pod install`
 
 ### Run
 After executing the installation steps, from the terminal execute:
