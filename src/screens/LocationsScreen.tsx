@@ -18,8 +18,7 @@ const LocationsScreen: React.FC = () => {
 
   useEffect(() => {
     dispatch(setLocations(londonLocations));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onLocationSelected = (location: LocationWithIndex): void => {
     setSelectedLocation(location);

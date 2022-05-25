@@ -35,7 +35,7 @@ const LocationDetails: React.FC<Props> = ({location}) => {
   const navigation = useNavigation<LocationDetailsNavigationProp>();
 
   const fadeValue = useRef(new Animated.Value(0));
-
+  // If is in favorites
   const isFavorite = !!favorites[location.id];
 
   useEffect(() => {
